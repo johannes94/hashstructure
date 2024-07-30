@@ -30,7 +30,7 @@ sending data across the network, caching values locally (de-dup), and so on.
 Standard `go get`:
 
 ```
-$ go get github.com/mitchellh/hashstructure/v2
+$ go get github.com/gohugoio/hashstructure
 ```
 
 **Note on v2:** It is highly recommended you use the "v2" release since this
