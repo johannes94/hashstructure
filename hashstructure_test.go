@@ -262,8 +262,9 @@ func TestHash_equalIgnore(t *testing.T) {
 		},
 		{
 			TestTime2{Name: "foo", Time: now},
-			TestTime2{Name: "foo", Time: time.Date(now.Year(), now.Month(), now.Day(), now.Hour(),
-				now.Minute(), now.Second(), now.Nanosecond(), now.Location()),
+			TestTime2{
+				Name: "foo", Time: time.Date(now.Year(), now.Month(), now.Day(), now.Hour(),
+					now.Minute(), now.Second(), now.Nanosecond(), now.Location()),
 			},
 			true,
 		},
