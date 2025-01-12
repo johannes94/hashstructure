@@ -675,6 +675,37 @@ func TestHash_hashable(t *testing.T) {
 	}
 }
 
+func BenchmarkMap(b *testing.B) {
+	m := map[string]any{
+		"a": "b",
+		"c": "d",
+		"e": "f",
+		"g": "h",
+		"i": "j",
+		"k": "l",
+		"m": "n",
+		"o": "p",
+		"q": "r",
+		"s": "t",
+		"nested": map[string]string{
+			"a": "b",
+			"c": "d",
+			"e": "f",
+			"g": "h",
+			"i": "j",
+			"k": "l",
+			"m": "n",
+			"o": "p",
+			"q": "r",
+			"s": "t",
+		},
+	}
+
+	for i := 0; i < b.N; i++ {
+		Hash(m, nil)
+	}
+}
+
 type testIncludable struct {
 	Value  string
 	Ignore string
