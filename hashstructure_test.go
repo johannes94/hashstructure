@@ -779,27 +779,29 @@ func TestHash_golden(t *testing.T) {
 
 func BenchmarkMap(b *testing.B) {
 	m := map[string]any{
-		"a": "b",
-		"c": "d",
-		"e": "f",
-		"g": "h",
-		"i": "j",
-		"k": "l",
-		"m": "n",
-		"o": "p",
-		"q": "r",
-		"s": "t",
-		"nested": map[string]string{
-			"a": "b",
-			"c": "d",
-			"e": "f",
-			"g": "h",
-			"i": "j",
-			"k": "l",
-			"m": "n",
-			"o": "p",
-			"q": "r",
-			"s": "t",
+		"int16":      int16(42),
+		"int32":      int32(42),
+		"int64":      int64(42),
+		"int":        int(42),
+		"uint16":     uint16(42),
+		"uint32":     uint32(42),
+		"uint64":     uint64(42),
+		"uint":       uint(42),
+		"float32":    float32(42),
+		"float64":    float64(42),
+		"complex64":  complex64(42),
+		"complex128": complex128(42),
+		"string":     "foo",
+		"bool":       true,
+		"slice":      []string{"foo", "bar"},
+		"sliceint":   []int{1, 2, 3},
+		"map":        map[string]string{"foo": "bar"},
+		"struct": struct {
+			Foo string
+			Bar []interface{}
+		}{
+			Foo: "foo",
+			Bar: []interface{}{nil, nil, nil},
 		},
 	}
 
