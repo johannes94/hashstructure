@@ -175,8 +175,9 @@ func (w *walker) hashDirect(v any) (uint64, error) {
 		binary.LittleEndian.PutUint64(w.buf[8:16], math.Float64bits(imag(val)))
 		w.h.Write(w.buf[:16])
 	default:
-		// Fallback for unsupported types
-		return 0, fmt.Errorf("unsupported type for hashDirect: %T", v)
+		// Fallback to binary.Write for unsupported types
+		err := binary.Write(w.h, binary.LittleEndian, v)
+		return w.h.Sum64(), err
 	}
 
 	return w.h.Sum64(), nil
